@@ -9,26 +9,24 @@ def isEmpty(stack_chain):  # 判断堆栈是否为空
 
 
 def push(stack_chain, element):  # 向堆栈stack_chain中插入元素element,并返回头指针
-    newChain = stackChain()  # 生成新的链表元素
-    newChain.next = stack_chain.next  # 将原表头下一个元素的地址赋值给新的链表元素
-    newChain.value = stack_chain.value  # 将原表头的值复制给新的元素
-    print('push  %d in stack' % element)
-    stack_chain.next = newChain  # 对头元素进行更新
-    stack_chain.value = element
+    newChain = stackChain(element) # 生成新的链表元素
+    newChain.next = stack_chain.next  # 将原表头栈顶元素接到新元素的下面
+    stack_chain.next = newChain  # 将头指针指向新元素
+    print('push '+str(element)+' in stack')
     return stack_chain
 
 
-def pop(stack_chain):  # 堆栈stack_chain的头元素,并返回头指针
+def pop(stack_chain):  # 堆栈stack_chain的头元素,并返回弹出的元素
     if isEmpty(stack_chain):
         print('it is an empty stack')
     else:
-        print('pop %d out from stack' % stack_chain.value)
-        temp = stack_chain.next
-        stack_chain.next = temp.next
-        stack_chain.value = temp.value
-        del temp
-    return stack_chain
-
+        p = stack_chain.next  # 指针指向头一个元素
+        print('pop '+str(p.value)+' out from stack')
+        stack_chain.next = p.next  # 将指针指向栈顶元素
+        element = p.value
+        del p  # 释放空间
+    return element
+'''
 test = stackChain()
 isEmpty(test)
 push(test,1)
@@ -36,3 +34,4 @@ push(test,2)
 push(test,3)
 pop(test)
 pop(test)
+'''
