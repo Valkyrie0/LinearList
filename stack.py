@@ -18,7 +18,7 @@ class Stack():
         if self._p == -1:  # 通过判断指针位置来确定堆栈是否为空
             print("it's an empty stack")
         else:
-            iterms = self._stack[self._p]  # 将最后一位元素的值取出
+            iterms = self._stack[-1]  # 将最后一位元素的值取出
             del self._stack[self._p]  # s删除元素
             self._p -= 1  # 指针指向栈顶
             print('pop %d out' % iterms)
