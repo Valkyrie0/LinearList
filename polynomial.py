@@ -99,8 +99,8 @@ def outputPoly(queue_chain):
 
 #multinomial1 = list(map(int, input().split()))
 #multinomial2 = list(map(int, input().split()))
-multinomial1 =[1,2,0,]
-multinomial2 =[1,2,0,0,0]
+multinomial1 =[1,1000,1000]
+multinomial2 =[1,1000,-1000]
 
 pr1 = inputPoly(multinomial1)
 pr2 = inputPoly(multinomial2)
